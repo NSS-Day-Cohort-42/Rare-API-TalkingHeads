@@ -3,7 +3,7 @@
   "python.pythonPath": "/home/chrisjohnson/.local/share/virtualenvs/rare-api-talking-heads-ShqYkTNn/bin/python",
   "sqltools.connections": [
     {
-      "previewLimit": 50,
+      "previewLimit": 500,
       "driver": "SQLite",
       "name": "rare_db",
       "database": "db.sqlite3"
