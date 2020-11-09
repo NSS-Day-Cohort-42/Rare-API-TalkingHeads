@@ -150,6 +150,6 @@ dmypy.json
 .prof
 
 # VSCode
-.vscode/settings.json
+.vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/django
