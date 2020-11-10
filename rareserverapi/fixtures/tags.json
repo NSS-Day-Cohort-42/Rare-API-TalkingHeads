@@ -1,0 +1,31 @@
+[{
+    "model": "rareserverapi.tag",
+    "pk": 1,
+    "fields": {
+      "label": "President"
+    }
+  }, {
+    "model": "rareserverapi.tag",
+    "pk": 2,
+    "fields": {
+      "label": "Fake"
+    }
+  }, {
+    "model": "rareserverapi.tag",
+    "pk": 3,
+    "fields": {
+      "label": "Facts"
+    }
+  }, {
+    "model": "rareserverapi.tag",
+    "pk": 4,
+    "fields": {
+      "label": "COVID"
+    }
+  }, {
+    "model": "rareserverapi.tag",
+    "pk": 5,
+    "fields": {
+      "label": "Conspiracy"
+    }
+  }]
