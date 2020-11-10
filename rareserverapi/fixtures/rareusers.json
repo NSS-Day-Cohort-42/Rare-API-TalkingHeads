@@ -1,0 +1,51 @@
+[{
+  "model": "rareserverapi.rareuser",
+  "pk": 1,
+  "fields": {
+    "bio": "tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan",
+    "profile_image_url": "http://dummyimage.com/130x156.jpg/dddddd/000000",
+    "created_on": "2020-06-25",
+    "active": true,
+    "user": 1
+  }
+}, {
+  "model": "rareserverapi.rareuser",
+  "pk": 2,
+  "fields": {
+    "bio": "nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla",
+    "profile_image_url": "http://dummyimage.com/114x118.jpg/ff4444/ffffff",
+    "created_on": "2020-05-20",
+    "active": true,
+    "user": 2
+  }
+}, {
+  "model": "rareserverapi.rareuser",
+  "pk": 3,
+  "fields": {
+    "bio": "mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat",
+    "profile_image_url": "http://dummyimage.com/118x214.jpg/5fa2dd/ffffff",
+    "created_on": "2020-10-07",
+    "active": true,
+    "user": 3
+  }
+}, {
+  "model": "rareserverapi.rareuser",
+  "pk": 4,
+  "fields": {
+    "bio": "quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean",
+    "profile_image_url": "http://dummyimage.com/132x129.jpg/dddddd/000000",
+    "created_on": "2020-04-12",
+    "active": true,
+    "user": 4
+  }
+}, {
+  "model": "rareserverapi.rareuser",
+  "pk": 5,
+  "fields": {
+    "bio": "est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in",
+    "profile_image_url": "http://dummyimage.com/150x219.jpg/dddddd/000000",
+    "created_on": "2019-12-14",
+    "active": true,
+    "user": 5
+  }
+}]

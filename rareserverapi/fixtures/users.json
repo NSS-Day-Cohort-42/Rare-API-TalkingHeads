@@ -1,0 +1,86 @@
+[{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "1qIkMRJYDaVc",
+    "last_login": null,
+    "is_supervisor": false,
+    "username": "kgrigorian0@umn.edu",
+    "first_name": "Koralle",
+    "last_name": "Grigorian",
+    "email": "kgrigorian0@umn.edu",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-10-21",
+    "groups": [],
+    "user_permissions": []
+  }
+}, {
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "vi6rdZ3sA1dY",
+    "last_login": null,
+    "is_supervisor": false,
+    "username": "arusk1@example.com",
+    "first_name": "Antonina",
+    "last_name": "Rusk",
+    "email": "arusk1@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-05-16",
+    "groups": [],
+    "user_permissions": []
+  }
+}, {
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "g4p5Akl1t",
+    "last_login": null,
+    "is_supervisor": false,
+    "username": "ncharnock2@domainmarket.com",
+    "first_name": "Nelly",
+    "last_name": "Charnock",
+    "email": "ncharnock2@domainmarket.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-06-03",
+    "groups": [],
+    "user_permissions": []
+  }
+}, {
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "o1cMtgTUZOV5",
+    "last_login": null,
+    "is_supervisor": false,
+    "username": "ivamplers3@senate.gov",
+    "first_name": "Inglis",
+    "last_name": "Vamplers",
+    "email": "ivamplers3@senate.gov",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-10-10",
+    "groups": [],
+    "user_permissions": []
+  }
+}, {
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "83eMQt",
+    "last_login": null,
+    "is_supervisor": false,
+    "username": "jwathen4@tmall.com",
+    "first_name": "Jennica",
+    "last_name": "Wathen",
+    "email": "jwathen4@tmall.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-22",
+    "groups": [],
+    "user_permissions": []
+  }
+}]
