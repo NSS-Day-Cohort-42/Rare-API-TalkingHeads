@@ -1,0 +1,112 @@
+[
+    {
+    "model": "rareserverapi.comment",
+    "pk": 1,
+    "fields": {
+      "content": "libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus",
+      "subject": "donec quis orci eget orci vehicula",
+      "post": 2,
+      "commenter": 2,
+      "created_on": "2020-08-23"
+    }
+  }, 
+  {
+    "model": "rareserverapi.comment",
+    "pk": 2,
+    "fields": {
+      "content": "elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor",
+      "subject": "proin risus praesent lectus vestibulum quam sapien",
+      "post": 4,
+      "commenter": 5,
+      "created_on": "2020-01-11"
+    }
+  }, 
+  {
+    "model": "rareserverapi.comment",
+    "pk": 3,
+    "fields": {
+      "content": "felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi",
+      "subject": "in magna bibendum imperdiet nullam orci pede",
+      "post": 2,
+      "commenter": 4,
+      "created_on": "2020-02-25"
+    }
+  },
+   {
+    "model": "rareserverapi.comment",
+    "pk": 4,
+    "fields": {
+      "content": "est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci",
+      "subject": "amet eros suspendisse",
+      "post": 2,
+      "commenter": 3,
+      "created_on": "2020-09-11"
+    }
+  }, 
+  {
+    "model": "rareserverapi.comment",
+    "pk": 5,
+    "fields": {
+      "content": "varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel",
+      "subject": "tellus nulla ut",
+      "post": 5,
+      "commenter": 5,
+      "created_on": "2020-06-09"
+    }
+  },
+  {
+    "model": "rareserverapi.comment",
+    "pk": 6,
+    "fields": {
+      "content": "elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam",
+      "subject": "eu felis fusce posuere felis sed lacus morbi",
+      "post": 5,
+      "commenter": 4,
+      "created_on": "2020-07-07"
+    }
+  }, 
+  {
+    "model": "rareserverapi.comment",
+    "pk": 7,
+    "fields": {
+      "content": "rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet",
+      "subject": "ante ipsum primis in faucibus orci",
+      "post": 2,
+      "commenter": 2,
+      "created_on": "2020-06-16"
+    }
+  }, 
+  {
+    "model": "rareserverapi.comment",
+    "pk": 8,
+    "fields": {
+      "content": "magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes",
+      "subject": "rutrum ac lobortis vel dapibus at diam",
+      "post": 1,
+      "commenter": 5,
+      "created_on": "2020-06-29"
+    }
+  }, 
+  {
+    "model": "rareserverapi.comment",
+    "pk": 9,
+    "fields": {
+      "content": "duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum",
+      "subject": "leo maecenas pulvinar",
+      "post": 3,
+      "commenter": 3,
+      "created_on": "2020-03-10"
+    }
+  },
+   {
+    "model": "rareserverapi.comment",
+    "pk": 10,
+    "fields": {
+      "content": "quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis",
+      "subject": "nonummy integer non velit donec",
+      "post": 5,
+      "commenter": 3,
+      "created_on": "2020-03-09"
+    }
+  }
+]
