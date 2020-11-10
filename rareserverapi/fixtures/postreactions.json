@@ -1,5 +1,5 @@
 [{
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 1,
     "fields": {
       "reactor": 5,
@@ -7,7 +7,7 @@
       "post": 9
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 2,
     "fields": {
       "reactor": 1,
@@ -15,7 +15,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 3,
     "fields": {
       "reactor": 5,
@@ -23,7 +23,7 @@
       "post": 7
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 4,
     "fields": {
       "reactor": 4,
@@ -31,7 +31,7 @@
       "post": 10
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 5,
     "fields": {
       "reactor": 5,
@@ -39,7 +39,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 6,
     "fields": {
       "reactor": 3,
@@ -47,7 +47,7 @@
       "post": 8
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 7,
     "fields": {
       "reactor": 3,
@@ -55,7 +55,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 8,
     "fields": {
       "reactor": 4,
@@ -63,7 +63,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 9,
     "fields": {
       "reactor": 3,
@@ -71,7 +71,7 @@
       "post": 4
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 10,
     "fields": {
       "reactor": 1,
@@ -79,7 +79,7 @@
       "post": 5
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 11,
     "fields": {
       "reactor": 1,
@@ -87,7 +87,7 @@
       "post": 4
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 12,
     "fields": {
       "reactor": 4,
@@ -95,7 +95,7 @@
       "post": 5
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 13,
     "fields": {
       "reactor": 2,
@@ -103,7 +103,7 @@
       "post": 2
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 14,
     "fields": {
       "reactor": 3,
@@ -111,7 +111,7 @@
       "post": 7
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 15,
     "fields": {
       "reactor": 3,
@@ -119,7 +119,7 @@
       "post": 5
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 16,
     "fields": {
       "reactor": 1,
@@ -127,7 +127,7 @@
       "post": 4
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 17,
     "fields": {
       "reactor": 2,
@@ -135,7 +135,7 @@
       "post": 5
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 18,
     "fields": {
       "reactor": 3,
@@ -143,7 +143,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 19,
     "fields": {
       "reactor": 2,
@@ -151,7 +151,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 20,
     "fields": {
       "reactor": 4,
@@ -159,7 +159,7 @@
       "post": 10
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 21,
     "fields": {
       "reactor": 3,
@@ -167,7 +167,7 @@
       "post": 2
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 22,
     "fields": {
       "reactor": 1,
@@ -175,7 +175,7 @@
       "post": 6
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 23,
     "fields": {
       "reactor": 2,
@@ -183,7 +183,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 24,
     "fields": {
       "reactor": 1,
@@ -191,7 +191,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 25,
     "fields": {
       "reactor": 2,
@@ -199,7 +199,7 @@
       "post": 6
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 26,
     "fields": {
       "reactor": 1,
@@ -207,7 +207,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 27,
     "fields": {
       "reactor": 1,
@@ -215,7 +215,7 @@
       "post": 4
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 28,
     "fields": {
       "reactor": 1,
@@ -223,7 +223,7 @@
       "post": 9
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 29,
     "fields": {
       "reactor": 5,
@@ -231,7 +231,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 30,
     "fields": {
       "reactor": 3,
@@ -239,7 +239,7 @@
       "post": 8
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 31,
     "fields": {
       "reactor": 3,
@@ -247,7 +247,7 @@
       "post": 9
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 32,
     "fields": {
       "reactor": 3,
@@ -255,7 +255,7 @@
       "post": 7
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 33,
     "fields": {
       "reactor": 2,
@@ -263,7 +263,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 34,
     "fields": {
       "reactor": 1,
@@ -271,7 +271,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 35,
     "fields": {
       "reactor": 5,
@@ -279,7 +279,7 @@
       "post": 2
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 36,
     "fields": {
       "reactor": 2,
@@ -287,7 +287,7 @@
       "post": 9
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 37,
     "fields": {
       "reactor": 4,
@@ -295,7 +295,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 38,
     "fields": {
       "reactor": 5,
@@ -303,7 +303,7 @@
       "post": 1
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 39,
     "fields": {
       "reactor": 4,
@@ -311,7 +311,7 @@
       "post": 10
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 40,
     "fields": {
       "reactor": 4,
@@ -319,7 +319,7 @@
       "post": 10
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 41,
     "fields": {
       "reactor": 4,
@@ -327,7 +327,7 @@
       "post": 7
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 42,
     "fields": {
       "reactor": 2,
@@ -335,7 +335,7 @@
       "post": 4
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 43,
     "fields": {
       "reactor": 1,
@@ -343,7 +343,7 @@
       "post": 2
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 44,
     "fields": {
       "reactor": 5,
@@ -351,7 +351,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 45,
     "fields": {
       "reactor": 2,
@@ -359,7 +359,7 @@
       "post": 9
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 46,
     "fields": {
       "reactor": 5,
@@ -367,7 +367,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 47,
     "fields": {
       "reactor": 3,
@@ -375,7 +375,7 @@
       "post": 5
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 48,
     "fields": {
       "reactor": 1,
@@ -383,7 +383,7 @@
       "post": 5
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 49,
     "fields": {
       "reactor": 1,
@@ -391,7 +391,7 @@
       "post": 3
     }
   }, {
-    "model": "rareserverapi.postreactions",
+    "model": "rareserverapi.postreaction",
     "pk": 50,
     "fields": {
       "reactor": 4,
