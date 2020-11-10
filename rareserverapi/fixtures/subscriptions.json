@@ -1,0 +1,46 @@
+[{
+    "model": "rareserverapi.subscription",
+    "pk": 1,
+    "fields": {
+      "follower": 2,
+      "author": 1,
+      "created_on": "2019-10-05",
+      "ended_on": "2020-02-04"
+    }
+  }, {
+    "model": "rareserverapi.subscription",
+    "pk": 2,
+    "fields": {
+      "follower": 3,
+      "author": 5,
+      "created_on": "2019-09-22",
+      "ended_on": "2019-12-11"
+    }
+  }, {
+    "model": "rareserverapi.subscription",
+    "pk": 3,
+    "fields": {
+      "follower": 3,
+      "author": 4,
+      "created_on": "2019-09-27",
+      "ended_on": "2020-04-21"
+    }
+  }, {
+    "model": "rareserverapi.subscription",
+    "pk": 4,
+    "fields": {
+      "follower": 2,
+      "author": 5,
+      "created_on": "2019-10-08",
+      "ended_on": "2020-10-20"
+    }
+  }, {
+    "model": "rareserverapi.subscription",
+    "pk": 5,
+    "fields": {
+      "follower": 1,
+      "author": 2,
+      "created_on": "2019-09-17",
+      "ended_on": "2020-09-23"
+    }
+  }]
