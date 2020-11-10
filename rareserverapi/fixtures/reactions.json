@@ -1,0 +1,29 @@
+[{
+    "model": "rareserverapi.reaction",
+    "pk": 1,
+    "fields": {
+      "label": "wow",
+      "image_url": "https://i.ibb.co/wCSy7x8/wow.png"
+    }
+  }, {
+    "model": "rareserverapi.reaction",
+    "pk": 2,
+    "fields": {
+      "label": "wtf",
+      "image_url": "https://i.ibb.co/xFCwqt1/curse.png"
+    }
+  }, {
+    "model": "rareserverapi.reaction",
+    "pk": 3,
+    "fields": {
+      "label": "hmm",
+      "image_url": "https://i.ibb.co/rFzDxVQ/hmm.png"
+    }
+  }, {
+    "model": "rareserverapi.reaction",
+    "pk": 4,
+    "fields": {
+      "label": "love",
+      "image_url": "https://i.ibb.co/m9Lr7H9/love.png"
+    }
+  }]

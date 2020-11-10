@@ -1,0 +1,141 @@
+[{
+    "model": "rareserverapi.posttag",
+    "pk": 1,
+    "fields": {
+      "post": 7,
+      "tag": 2
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 2,
+    "fields": {
+      "post": 2,
+      "tag": 2
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 3,
+    "fields": {
+      "post": 7,
+      "tag": 1
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 4,
+    "fields": {
+      "post": 1,
+      "tag": 2
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 5,
+    "fields": {
+      "post": 3,
+      "tag": 5
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 6,
+    "fields": {
+      "post": 4,
+      "tag": 1
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 7,
+    "fields": {
+      "post": 1,
+      "tag": 5
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 8,
+    "fields": {
+      "post": 8,
+      "tag": 2
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 9,
+    "fields": {
+      "post": 3,
+      "tag": 2
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 10,
+    "fields": {
+      "post": 2,
+      "tag": 5
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 11,
+    "fields": {
+      "post": 6,
+      "tag": 4
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 12,
+    "fields": {
+      "post": 3,
+      "tag": 4
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 13,
+    "fields": {
+      "post": 8,
+      "tag": 1
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 14,
+    "fields": {
+      "post": 10,
+      "tag": 1
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 15,
+    "fields": {
+      "post": 5,
+      "tag": 3
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 16,
+    "fields": {
+      "post": 4,
+      "tag": 4
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 17,
+    "fields": {
+      "post": 10,
+      "tag": 3
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 18,
+    "fields": {
+      "post": 3,
+      "tag": 5
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 19,
+    "fields": {
+      "post": 5,
+      "tag": 5
+    }
+  }, {
+    "model": "rareserverapi.posttag",
+    "pk": 20,
+    "fields": {
+      "post": 2,
+      "tag": 1
+    }
+  }]
