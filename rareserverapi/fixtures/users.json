@@ -4,7 +4,7 @@
   "fields": {
     "password": "1qIkMRJYDaVc",
     "last_login": null,
-    "is_supervisor": false,
+    "is_superuser": false,
     "username": "kgrigorian0@umn.edu",
     "first_name": "Koralle",
     "last_name": "Grigorian",
@@ -21,7 +21,7 @@
   "fields": {
     "password": "vi6rdZ3sA1dY",
     "last_login": null,
-    "is_supervisor": false,
+    "is_superuser": false,
     "username": "arusk1@example.com",
     "first_name": "Antonina",
     "last_name": "Rusk",
@@ -38,7 +38,7 @@
   "fields": {
     "password": "g4p5Akl1t",
     "last_login": null,
-    "is_supervisor": false,
+    "is_superuser": false,
     "username": "ncharnock2@domainmarket.com",
     "first_name": "Nelly",
     "last_name": "Charnock",
@@ -55,7 +55,7 @@
   "fields": {
     "password": "o1cMtgTUZOV5",
     "last_login": null,
-    "is_supervisor": false,
+    "is_superuser": false,
     "username": "ivamplers3@senate.gov",
     "first_name": "Inglis",
     "last_name": "Vamplers",
@@ -72,7 +72,7 @@
   "fields": {
     "password": "83eMQt",
     "last_login": null,
-    "is_supervisor": false,
+    "is_superuser": false,
     "username": "jwathen4@tmall.com",
     "first_name": "Jennica",
     "last_name": "Wathen",
