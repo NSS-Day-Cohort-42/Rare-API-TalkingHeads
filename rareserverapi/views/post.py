@@ -1,5 +1,8 @@
 """ View module for handling requests for categories """
+
+from rest_framework import status
 from rareserverapi.models.rareuser import RareUser
+from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -9,6 +12,29 @@ from django.contrib.auth.models import User
 
 class Posts(ViewSet):
     """ rare Post  """
+
+    def create(self, request):
+        """Handle POST operations
+
+        Returns:
+            Response indicating success of request
+        """
+
+        post = Post()
+        post.category = request.data["category_id"]
+        post.title = request.data["title"]
+        post.image_url = request.data["image_url"]
+        post.publication_date = request.data["publication_date"]
+        post.content = request.data["content"]
+        post.approved = request.data["approved"]
+
+        try:
+            post.save()
+            serializer = PostSerializer(post, context={'request': request})
+            return Response(serializer.data)
+
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
         """ Handle Get requests for a single post
