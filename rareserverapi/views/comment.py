@@ -20,7 +20,7 @@ class RareUserSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = RareUser
-        fields = ( 'profile_image_url', 'user')
+        fields = ( 'profile_image_url', 'user', 'id')
 
 class CommentSerializer(serializers.ModelSerializer):
 
@@ -76,18 +76,19 @@ class Comments(ViewSet):
         """all comments"""
         comments = Comment.objects.all()
 
-        commenter = RareUser.objects(user=request.auth.user)
+        commenter = RareUser.objects.get(user=request.auth.user)
         
 
 
         for comment in comments:
-            comment.owner = None
+            comment.owner = False
                 
             try:
-                Post.objects.get(comment=comment, commenter=commenter)
+
+                Comment.objects.get(commenter=comment)
                 comment.owner = True
-            except RareUser.DoesNotExist:
-                comment.owner = False
+            except Exception as ex:
+               return HttpResponseServerError(ex)
         #filters comments by post_id  -- comments?post_id=1
         post = self.request.query_params.get('post_id', None)
         if post is not None:

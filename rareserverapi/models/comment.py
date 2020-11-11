@@ -14,8 +14,8 @@ class Comment(models.Model):
 
     @property
     def owner(self):
-        return self.__joined
+        return self.__owner
 
     @owner.setter
     def joined(self, value):
-        self.__joined = value
+        self.__owner = value
