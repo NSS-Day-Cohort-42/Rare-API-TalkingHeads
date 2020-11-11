@@ -28,7 +28,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter')
+        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter', 'owner')
         depth = 1
 
 
@@ -45,7 +45,7 @@ class Comments(ViewSet):
         comment.subject = request.data['subject']
         comment.created_on = ""
 
-        post = Post.objects.get(pk=request.data["postId"])
+        post = Post.objects.get(pk=request.data["post_id"])
         
         comment.commenter = commenter
 
@@ -76,6 +76,23 @@ class Comments(ViewSet):
         """all comments"""
         comments = Comment.objects.all()
 
+        commenter = RareUser.objects(user=request.auth.user)
+        
+
+
+        for comment in comments:
+            comment.owner = None
+                
+            try:
+                Post.objects.get(comment=comment, commenter=commenter)
+                comment.owner = True
+            except RareUser.DoesNotExist:
+                comment.owner = False
+        #filters comments by post_id  -- comments?post_id=1
+        post = self.request.query_params.get('post_id', None)
+        if post is not None:
+            comments = comments.filter(post_id=post)
+
         serializer = CommentSerializer(comments, many=True, context={'request': request})
         return Response(serializer.data)
 
@@ -90,7 +107,7 @@ class Comments(ViewSet):
         comment.subject = request.data['subject']
         comment.created_on = ""
 
-        post = Post.objects.get(pk=request.data["postId"])
+        post = Post.objects.get(pk=request.data["post_id"])
         
         comment.commenter = commenter
 

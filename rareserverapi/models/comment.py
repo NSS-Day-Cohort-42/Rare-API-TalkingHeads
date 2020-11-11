@@ -10,3 +10,12 @@ class Comment(models.Model):
     content = models.CharField(max_length=500)
     subject = models.CharField(max_length=50)
     created_on = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+
+    @property
+    def owner(self):
+        return self.__joined
+
+    @owner.setter
+    def joined(self, value):
+        self.__joined = value
