@@ -1,5 +1,7 @@
 """ View module for handling requests for categories """
 from django.http import HttpResponseServerError
+from django.core.exceptions import ValidationError
+from rest_framework import status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
@@ -7,6 +9,23 @@ from rareserverapi.models import Category
 
 class Categories(ViewSet):
     """ rare category types """
+
+    def create(self, request):
+        """Handle POST operations
+
+        Returns:
+            Response indicating success of request
+        """
+        category = Category()
+        category.label = request.data["label"]
+
+        try:
+            category.save()
+            serializer = CategorySerializer(category, context={'request': request})
+            return Response(serializer.data)
+
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
         """ Handle Get requests for a single category type
@@ -27,7 +46,7 @@ class Categories(ViewSet):
         """
         categories = Category.objects.all()
 
-        # Note the addtional `many=True` argument to the
+        # Note the additional `many=True` argument to the
         # serializer. It's needed when you are serializing
         # a list of objects instead of a single object.
         serializer = CategorySerializer(
