@@ -3,15 +3,32 @@ from django.core.exceptions import ValidationError
 from rest_framework import status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rareserverapi.models import Comment, Post
 from rareserverapi.models import  RareUser
 
+class CommenterUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ('username', )
+
+class RareUserSerializer(serializers.ModelSerializer):
+
+    user = CommenterUserSerializer(many=False)
+    class Meta:
+
+        model = RareUser
+        fields = ( 'profile_image_url', 'user')
+
 class CommentSerializer(serializers.ModelSerializer):
+
+    commenter = RareUserSerializer(many=False)
+
     class Meta:
         model = Comment
-        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject')
+        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter')
 
 
 class Comments(ViewSet):
