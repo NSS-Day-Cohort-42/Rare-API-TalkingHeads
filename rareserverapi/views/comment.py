@@ -29,6 +29,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter')
+        depth = 1
 
 
 class Comments(ViewSet):
