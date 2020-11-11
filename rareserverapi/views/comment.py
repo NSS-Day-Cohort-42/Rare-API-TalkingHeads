@@ -79,3 +79,40 @@ class Comments(ViewSet):
         serializer = CommentSerializer(comments, many=True, context={'request': request})
         return Response(serializer.data)
 
+    def update(self, request, pk=None):
+        """edits comment"""
+
+        commenter = RareUser.objects.get(user=request.auth.user)
+
+        comment = Comment.objects.get(pk=pk)
+
+        comment.content = request.data['content']
+        comment.subject = request.data['subject']
+        comment.created_on = ""
+
+        post = Post.objects.get(pk=request.data["postId"])
+        
+        comment.commenter = commenter
+
+        comment.post = post
+
+        comment.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+    
+    
+    def destroy(self, request, pk=None):
+        """deletes comment"""
+
+        try:
+            comment = Comment.objects.get(pk=pk)
+
+            comment.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Comment.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
