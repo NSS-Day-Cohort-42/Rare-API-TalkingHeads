@@ -12,7 +12,7 @@ from rareserverapi.models import  RareUser
 class CommenterUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ('username', )
+        fields = ('username', 'id')
 
 class RareUserSerializer(serializers.ModelSerializer):
 
@@ -28,7 +28,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter', 'owner')
+        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter', 'owner', 'created_on')
         depth = 1
 
 
@@ -38,7 +38,7 @@ class Comments(ViewSet):
         """post operations for adding comments"""
 
         commenter = RareUser.objects.get(user=request.auth.user)
-
+        
         comment = Comment()
 
         comment.content = request.data['content']
@@ -76,19 +76,11 @@ class Comments(ViewSet):
         """all comments"""
         comments = Comment.objects.all()
 
-        commenter = RareUser.objects.get(user=request.auth.user)
+        # commenter = RareUser.objects.get(user=request.auth.user)
         
 
 
-        for comment in comments:
-            comment.owner = False
-                
-            try:
-
-                Comment.objects.get(commenter=comment)
-                comment.owner = True
-            except Exception as ex:
-               return HttpResponseServerError(ex)
+        
         #filters comments by post_id  -- comments?post_id=1
         post = self.request.query_params.get('post_id', None)
         if post is not None:
@@ -106,7 +98,7 @@ class Comments(ViewSet):
 
         comment.content = request.data['content']
         comment.subject = request.data['subject']
-        comment.created_on = ""
+        comment.created_on = request.data['created_on']
 
         post = Post.objects.get(pk=request.data["post_id"])
         
@@ -134,3 +126,7 @@ class Comments(ViewSet):
 
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+
+
+    
