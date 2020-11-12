@@ -10,3 +10,11 @@ class Comment(models.Model):
     content = models.CharField(max_length=500)
     subject = models.CharField(max_length=50)
     created_on = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    @property
+    def is_owner(self):
+        return self.__is_owner
+
+    @is_owner.setter
+    def is_owner(self, value):
+        self.__is_owner = value
