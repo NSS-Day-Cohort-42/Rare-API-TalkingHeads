@@ -28,7 +28,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter', 'owner', 'created_on')
+        fields = ('id', 'post_id', 'commenter_id', 'content', 'subject', 'commenter', 'is_owner', 'created_on')
         depth = 1
 
 
@@ -76,25 +76,25 @@ class Comments(ViewSet):
         """all comments"""
         comments = Comment.objects.all() # all comments commenter_id 
 
-        commenter = RareUser.objects.get(user=request.auth.user) #commenter is id of currently logged in user
+        current_user = RareUser.objects.get(user=request.auth.user) #commenter is id of currently logged in user
 
-        # for comment_filter in comments:
-            
-        #     try:
-        #         Comment.objects.filter(commenter_id=commenter)
-        #         comment_filter.owner = True
-        #     except Comment.DoesNotExist:
-        #         comment_filter.owner = False
-
-
-        
         #filters comments by post_id  -- comments?post_id=1
         post = self.request.query_params.get('post_id', None)
         if post is not None:
             comments = comments.filter(post_id=post)
 
+            for comment in comments:
+                comment.is_owner = False
+                if comment.commenter_id == current_user.id:
+                    comment.is_owner = True
+                
+
         serializer = CommentSerializer(comments, many=True, context={'request': request})
         return Response(serializer.data)
+        
+
+
+        
 
     def update(self, request, pk=None):
         """edits comment"""
