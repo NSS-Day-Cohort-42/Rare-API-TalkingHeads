@@ -2,6 +2,7 @@
 from django.http import HttpResponseServerError
 from django.core.exceptions import ValidationError
 from rest_framework import status
+from rest_framework.status import HTTP_404_NOT_FOUND
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
@@ -52,6 +53,24 @@ class Categories(ViewSet):
         serializer = CategorySerializer(
             categories, many=True, context={'request': request})
         return Response(serializer.data)
+
+    def destroy(self, request, pk=None):
+        """Handles DELETE resquests for a category
+        Returns:
+            Response indicating success (200, 404 or 500 status code)
+        """
+        try:
+            category = Category.objects.get(pk=pk)
+            category.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Category.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     """ JSON Serializer for category types 
