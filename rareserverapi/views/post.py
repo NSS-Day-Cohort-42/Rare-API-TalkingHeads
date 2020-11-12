@@ -68,7 +68,7 @@ class Posts(ViewSet):
 
             for post in posts:
                 post.is_owner = False
-                if post.author == current_user.id:
+                if post.author.id == current_user.id:
                     post.is_owner = True
 
 
