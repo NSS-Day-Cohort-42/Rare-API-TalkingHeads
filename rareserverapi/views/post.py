@@ -53,7 +53,7 @@ class Posts(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
-    def list(self, request):
+    def list(self, request, pk=None):
         """ Handle GET requests to get all posts 
         Returns:
             Response -- JSON serialized list of posts
@@ -62,14 +62,18 @@ class Posts(ViewSet):
 
         current_user = RareUser.objects.get(user=request.auth.user)
 
-        user_id = self.request.query_params.get('user_id', None)
-        if user_id is not None:
-            posts = posts.filter(author_id=user_id)
+        if pk == "myposts":
+            pk = current_user.id
+            posts = posts.filter(author_id = pk)
 
-            for post in posts:
-                post.is_owner = False
-                if post.author.id == current_user.id:
-                    post.is_owner = True
+        user_id = self.request.query_params.get('user_id', None)
+        # if user_id is not None:
+        #     posts = posts.filter(author_id=user_id)
+
+        #     for post in posts:
+        #         post.is_owner = False
+        #         if post.author.id == current_user.id:
+        #             post.is_owner = True
 
 
         # Note the addtional `many=True` argument to the
