@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from rest_framework.viewsets import ViewSet
 from rest_framework import serializers, status
 from rest_framework.response import Response
-from rareapi.models import Tag
+from rareserverapi.models import Tag
 
 class Tags(ViewSet):
     """Tags Class"""
