@@ -1,5 +1,6 @@
 """ View module for handling requests for categories """
 
+from rareserverapi.models.category import Category
 from rest_framework import status
 from rareserverapi.models.rareuser import RareUser
 from django.core.exceptions import ValidationError
@@ -21,12 +22,15 @@ class Posts(ViewSet):
         """
 
         post = Post()
-        post.category = request.data["category_id"]
+        category = Category.objects.get(pk=request.data["category_id"])
+        author = RareUser.objects.get(user=request.auth.user)
+        post.category = category
         post.title = request.data["title"]
         post.image_url = request.data["image_url"]
         post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.approved = request.data["approved"]
+        post.author = author
 
         try:
             post.save()
