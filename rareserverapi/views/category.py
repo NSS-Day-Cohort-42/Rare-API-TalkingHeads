@@ -1,5 +1,5 @@
 """ View module for handling requests for categories """
-from rareserverapi.models import category
+from rareserverapi.models import Category
 from django.http import HttpResponseServerError
 from django.core.exceptions import ValidationError
 from rest_framework import status
