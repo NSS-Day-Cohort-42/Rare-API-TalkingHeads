@@ -74,10 +74,17 @@ class Comments(ViewSet):
     
     def list(self, request):
         """all comments"""
-        comments = Comment.objects.all()
+        comments = Comment.objects.all() # all comments commenter_id 
 
-        # commenter = RareUser.objects.get(user=request.auth.user)
-        
+        commenter = RareUser.objects.get(user=request.auth.user) #commenter is id of currently logged in user
+
+        # for comment_filter in comments:
+            
+        #     try:
+        #         Comment.objects.filter(commenter_id=commenter)
+        #         comment_filter.owner = True
+        #     except Comment.DoesNotExist:
+        #         comment_filter.owner = False
 
 
         
@@ -126,6 +133,8 @@ class Comments(ViewSet):
 
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+
     
 
 
