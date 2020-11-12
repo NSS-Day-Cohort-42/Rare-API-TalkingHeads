@@ -1,4 +1,5 @@
 """ View module for handling requests for categories """
+from rareserverapi.models import category
 from django.http import HttpResponseServerError
 from django.core.exceptions import ValidationError
 from rest_framework import status
@@ -70,6 +71,17 @@ class Categories(ViewSet):
 
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def update(self, request, pk=None):
+        """Handles PUT request to edit a category"""
+
+        category = Category.objects.get(pk=pk)
+
+        category.label = request.data['label']
+
+        category.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
             
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
