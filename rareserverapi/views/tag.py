@@ -27,6 +27,17 @@ class Tags(ViewSet):
         except ValidationError as ex:
             return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
+    def update(self, request, pk=None):
+        """Handles PUT request to edit a tag"""
+
+        tag = Tag.objects.get(pk=pk)
+
+        tag.label = request.data['label']
+        
+        tag.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
 class TagSerializer(serializers.ModelSerializer):
     """ Tag Serializer """
     class Meta:
