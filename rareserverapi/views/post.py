@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rareserverapi.models import Post
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model 
 
 class Posts(ViewSet):
     """ rare Post  """
@@ -71,6 +72,26 @@ class Posts(ViewSet):
             post.is_owner = False
             if post.author_id == current_user.id:
                 post.is_owner = True
+
+        current_user = RareUser.objects.get(user=request.auth.user)
+
+        for post in posts:
+            post.is_owner = None
+            if post.author_id == current_user.id:
+                post.is_owner = True
+            else:
+                post.is_owner = False
+
+        # if pk == "myposts":
+        #     pk = current_user.id
+        #     posts = posts.filter(author_id = pk)
+
+        user_id = self.request.query_params.get('user_id', None)
+        if user_id is not None:
+            posts = posts.filter(author_id=user_id)
+
+            
+
 
         # Note the addtional `many=True` argument to the
         # serializer. It's needed when you are serializing
@@ -138,7 +159,8 @@ class PostSerializer(serializers.ModelSerializer):
         serializers
     """
     author = RareUserSerializer(many=False)
+
     class Meta:
         model = Post
-        fields = ('id', 'author', 'category', 'title', 'image_url', 'publication_date', 'is_owner', 'content', 'approved')
+        fields = ('id', 'author', 'category', 'title', 'image_url', 'publication_date', 'content', 'approved', 'is_owner', 'author_id')
         depth = 1
