@@ -1,5 +1,6 @@
 """ View module for handling requests for categories """
 
+from rest_framework.status import HTTP_404_NOT_FOUND
 from rareserverapi.models.category import Category
 from rest_framework import status
 from rareserverapi.models.rareuser import RareUser
@@ -65,6 +66,23 @@ class Posts(ViewSet):
         serializer = PostSerializer(
             posts, many=True, context={'request': request})
         return Response(serializer.data)
+
+    def destroy(self, request, pk=None):
+        """Handles DELETE resquests for a post
+        Returns:
+            Response indicating success (200, 404 or 500 status code)
+        """
+        try:
+            post = Post.objects.get(pk=pk)
+            post.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Post.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class UserSerializer(serializers.ModelSerializer):
     """ JSON Serializer for user 
