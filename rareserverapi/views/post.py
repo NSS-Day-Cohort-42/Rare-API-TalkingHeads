@@ -48,6 +48,12 @@ class Posts(ViewSet):
     """
         try:
             post = Post.objects.get(pk=pk)
+            current_user = RareUser.objects.get(user=request.auth.user)
+
+            post.is_owner = False
+            if post.author_id == current_user.id:
+                post.is_owner = True
+
             serializer = PostSerializer(post, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
@@ -59,6 +65,12 @@ class Posts(ViewSet):
             Response -- JSON serialized list of posts
         """
         posts = Post.objects.all()
+        current_user = RareUser.objects.get(user=request.auth.user)
+
+        for post in posts:
+            post.is_owner = False
+            if post.author_id == current_user.id:
+                post.is_owner = True
 
         # Note the addtional `many=True` argument to the
         # serializer. It's needed when you are serializing
@@ -111,5 +123,5 @@ class PostSerializer(serializers.ModelSerializer):
     author = RareUserSerializer(many=False)
     class Meta:
         model = Post
-        fields = ('id', 'author', 'category', 'title', 'image_url', 'publication_date', 'content', 'approved')
+        fields = ('id', 'author', 'category', 'title', 'image_url', 'publication_date', 'is_owner', 'content', 'approved')
         depth = 1
