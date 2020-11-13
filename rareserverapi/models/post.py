@@ -12,3 +12,11 @@ class Post(models.Model):
     publication_date = models.DateField(auto_now_add=True, auto_now=False)
     content = models.CharField(max_length=500)
     approved = models.BooleanField(default=False)
+
+    @property
+    def is_owner(self):
+        return self.__is_owner
+
+    @is_owner.setter
+    def is_owner(self, value):
+        self.__is_owner = value
