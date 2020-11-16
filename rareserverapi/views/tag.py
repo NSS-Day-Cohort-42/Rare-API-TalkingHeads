@@ -38,6 +38,23 @@ class Tags(ViewSet):
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
+    def destroy(self, request, pk=None):
+        """Handles DELETE resquests for a tag
+        Returns:
+            Response indicating success (200, 404 or 500 status code)
+        """
+        try:
+            tag = Tag.objects.get(pk=pk)
+            tag.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Tag.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 class TagSerializer(serializers.ModelSerializer):
     """ Tag Serializer """
     class Meta:
