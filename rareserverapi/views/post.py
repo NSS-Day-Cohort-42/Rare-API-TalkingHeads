@@ -1,5 +1,6 @@
 """ View module for handling requests for categories """
 
+from rest_framework.status import HTTP_404_NOT_FOUND
 from rareserverapi.models.category import Category
 from rest_framework import status
 from rareserverapi.models.rareuser import RareUser
@@ -48,6 +49,12 @@ class Posts(ViewSet):
     """
         try:
             post = Post.objects.get(pk=pk)
+            current_user = RareUser.objects.get(user=request.auth.user)
+
+            post.is_owner = False
+            if post.author_id == current_user.id:
+                post.is_owner = True
+
             serializer = PostSerializer(post, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
@@ -59,6 +66,12 @@ class Posts(ViewSet):
             Response -- JSON serialized list of posts
         """
         posts = Post.objects.all()
+        current_user = RareUser.objects.get(user=request.auth.user)
+
+        for post in posts:
+            post.is_owner = False
+            if post.author_id == current_user.id:
+                post.is_owner = True
 
         current_user = RareUser.objects.get(user=request.auth.user)
 
@@ -86,6 +99,40 @@ class Posts(ViewSet):
         serializer = PostSerializer(
             posts, many=True, context={'request': request})
         return Response(serializer.data)
+
+    def update(self, request, pk=None):
+        """edits post"""
+
+        post = Post.objects.get(pk=pk)
+        category = Category.objects.get(pk=request.data["category_id"])
+        author = RareUser.objects.get(user=request.auth.user)
+        post.category = category
+        post.title = request.data["title"]
+        post.image_url = request.data["image_url"]
+        # post.publication_date = request.data["publication_date"]
+        post.content = request.data["content"]
+        post.author = author
+
+        post.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk=None):
+        """Handles DELETE resquests for a post
+        Returns:
+            Response indicating success (200, 404 or 500 status code)
+        """
+        try:
+            post = Post.objects.get(pk=pk)
+            post.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except Post.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class UserSerializer(serializers.ModelSerializer):
     """ JSON Serializer for user 
@@ -115,5 +162,5 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'category', 'title', 'image_url', 'publication_date', 'content', 'approved', 'is_owner', 'author_id')
+        fields = ('id', 'author', 'category', 'title', 'image_url', 'publication_date', 'content', 'approved', 'is_owner', 'author_id', 'category_id')
         depth = 1
