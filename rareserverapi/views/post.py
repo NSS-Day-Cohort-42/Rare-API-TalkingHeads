@@ -31,8 +31,17 @@ class Posts(ViewSet):
         post.image_url = request.data["image_url"]
         post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
-        post.approved = request.data["approved"]
         post.author = author
+        post.approved = request.data["approved"]
+        try:
+            # user_admin = User.objects.get(request.auth.user)
+            
+            if author.user.is_staff == True:
+                post.approved = True
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+            
+                
 
         try:
             post.save()
