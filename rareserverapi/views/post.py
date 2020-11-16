@@ -126,6 +126,18 @@ class Posts(ViewSet):
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
+    def partial_update(self, request, pk=None):
+        """partially updates post"""
+
+        post = Post.objects.get(pk=pk)
+        post.approved = request.data["approved"]
+
+        post.save()
+
+        # post.update(approved=request.data["approved"])
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
     def destroy(self, request, pk=None):
         """Handles DELETE resquests for a post
         Returns:
