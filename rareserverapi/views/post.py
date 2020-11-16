@@ -134,8 +134,6 @@ class Posts(ViewSet):
 
         post.save()
 
-        # post.update(approved=request.data["approved"])
-
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk=None):
