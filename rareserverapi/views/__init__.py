@@ -5,3 +5,4 @@ from .auth import login_user
 from .comment import Comments
 from .tag import Tags
 from .posttag import PostTags
+from .profile import Profiles
