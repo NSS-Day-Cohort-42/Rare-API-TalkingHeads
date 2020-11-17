@@ -41,7 +41,9 @@ class Users(ViewSet):
         if user.user.is_staff == True:
             try:
                 user_to_update = RareUser.objects.get(pk=pk)
+                
                 user_to_update.user.is_staff = request.data["is_staff"]
+
                 user_to_update.user.save()
                 return Response({}, status=status.HTTP_204_NO_CONTENT)
             except ValidationError as ex:
