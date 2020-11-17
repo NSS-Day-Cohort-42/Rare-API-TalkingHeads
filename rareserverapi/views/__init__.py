@@ -6,3 +6,4 @@ from .comment import Comments
 from .tag import Tags
 from .posttag import PostTags
 from .profile import Profiles
+from . user import Users
