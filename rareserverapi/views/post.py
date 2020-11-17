@@ -9,7 +9,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from rareserverapi.models import Post
+from rareserverapi.models import Post, PostTag
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model 
 
@@ -32,6 +32,7 @@ class Posts(ViewSet):
         post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.author = author
+        post.selected_tags = request.data["selected_tags"]
         post.approved = request.data["approved"]
         try:
             # user_admin = User.objects.get(request.auth.user)
@@ -46,6 +47,13 @@ class Posts(ViewSet):
         try:
             post.save()
             serializer = PostSerializer(post, context={'request': request})
+            #iterate through the selected tags array
+            for tag in post.selected_tags:
+                posttag = PostTag()
+                posttag.tag_id = int(tag["id"])
+                posttag.post_id = int(serializer.data["id"])
+                posttag.save()
+
             return Response(serializer.data)
 
         except ValidationError as ex:
@@ -121,8 +129,15 @@ class Posts(ViewSet):
         # post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.author = author
+        post.selected_tags = request.data["selected_tags"]
 
         post.save()
+
+        for tag in post.selected_tags:
+            posttag = PostTag()
+            posttag.tag_id = int(tag["id"])
+            posttag.post_id = int(serializer.data["id"])
+            posttag.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
