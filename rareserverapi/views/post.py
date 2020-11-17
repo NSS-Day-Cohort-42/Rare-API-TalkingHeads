@@ -141,6 +141,24 @@ class Posts(ViewSet):
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
+    def partial_update(self, request, pk=None):
+        """partially updates post"""
+
+        user = RareUser.objects.get(user=request.auth.user)
+
+        post = Post.objects.get(pk=pk)
+        post.approved = request.data["approved"]
+
+        if user.user.is_staff == True:
+            try:
+                post.save()
+                return Response({}, status=status.HTTP_204_NO_CONTENT)
+            except ValidationError as ex:
+                return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            return Response({"reason": "user is not an administrator"}, status=status.HTTP_403_FORBIDDEN)
+
     def destroy(self, request, pk=None):
         """Handles DELETE resquests for a post
         Returns:
