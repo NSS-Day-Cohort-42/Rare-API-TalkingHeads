@@ -11,7 +11,7 @@ from rareserverapi.models import RareUser
 
 class Profiles(ViewSet):
     """ rare user types """
-
+    
     def list(self, request):
         """ Handle GET request for single user profile """
 
