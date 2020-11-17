@@ -1,4 +1,5 @@
 """PostTags Views Module"""
+from django.http import HttpResponseServerError
 from django.core.exceptions import ValidationError
 from rest_framework.viewsets import ViewSet
 from rest_framework import serializers, status
@@ -7,67 +8,71 @@ from rareserverapi.models import PostTag, Tag, Post
 
 
 class PostTags(ViewSet):
-    """ Responsible for GET, POST, DELETE """
+    """Rare post tags"""
+
     def list(self, request):
-        """ GET all pt objects """
+        """Handle GET requests to get posttags by post"""
+
         posttags = PostTag.objects.all()
 
-        post_id = self.request.query_params.get("postId", None)
-        if post_id is not None:
-            posttags = posttags.filter(post_id=post_id)
+        #filtering posttags by post
+        post = self.request.query_params.get("post_id", None)
 
-        serializer = PostTagSerializer(posttags, many=True, context={'request', request})
+        if post is not None:
+            posttags = posttags.filter(post_id=post)
+
+        serializer = PostTagSerializer(
+            posttags, many=True, context={'request': request})
         return Response(serializer.data)
 
     def create(self, request):
-        """ POST """
-        #these match the properties in PostForm.js
-        post_id = request.data["post_id"]
-        tag_id = request.data["tag_id"]
+        """Handle POST operations"""
 
-        #check if post exists
-        try:
-            post = Post.objects.get(id=post_id)
-        except Post.DoesNotExist:
-            return Response({'message: invalid post id'}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+        post = Post.objects.get(pk=request.data["post_id"])
+        tag = Tag.objects.get(pk=request.data["tag_id"])
 
-        #check if tag exists
-        try:
-            tag = Tag.objects.get(id=tag_id)
-        except Tag.DoesNotExist:
-            return Response({'message: invalid tag id'}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+        posttag = PostTag()
+        posttag.post = post
+        posttag.tag = tag
 
-        #check if posttag exists
         try: 
-            posttag = PostTag.objects.get(post=post, tag=tag)
-            return Response({'message': 'Posttag already exists for these two items'}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-        except PostTag.DoesNotExist:
-            #if it does not exist, make new obj
-            posttag = PostTag()
-            posttag.post = post
-            posttag.tag = tag
-            try: 
-                posttag.save()
-                serializer = PostTagSerializer(posttag, many=False, )
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            except ValidationError as ex:
-                return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+            posttag.save()
+            serializer = PostTagSerializer(posttag, context={'request': request})
+            return Response(serializer.data)
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        """ DELETE """
+        """Handle DELETE requests for a single posttag
+
+        Returns:
+            Response -- 200, 404, or 500 status code
+        """
         try:
             posttag = PostTag.objects.get(pk=pk)
             posttag.delete()
+
             return Response({}, status=status.HTTP_204_NO_CONTENT)
+
         except PostTag.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-class PostTagSerializer(serializers.ModelSerializer):
-    """ Serializes PostTags """
+class TagSerializer(serializers.HyperlinkedModelSerializer):
+    """JSON serializer for tags"""
+    class Meta:
+        model = Tag
+        fields = ('id', 'label')
+
+
+class PostTagSerializer(serializers.HyperlinkedModelSerializer):
+    """JSON serializer for posttags"""
+    
+    tag = TagSerializer(many=False)
+
     class Meta:
         model = PostTag
-        fields = ('id', 'tag', 'post')
+        fields = ('id', 'post_id', 'tag_id', 'tag')
         depth = 1
-        #so we can access whole tag and post object
