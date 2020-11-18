@@ -42,11 +42,6 @@ class PostTags(ViewSet):
 
         posttags = PostTag.objects.all()
 
-        #filtering posttags by post
-        post = self.request.query_params.get("post_id", None)
-
-        if post is not None:
-            posttags = posttags.filter(post_id=post)
 
         serializer = PostTagSerializer(
             posttags, many=True, context={'request': request})
@@ -60,6 +55,13 @@ class PostTags(ViewSet):
         posttag = PostTag()
         posttag.post = post
         posttag.tag = tag
+
+        try: 
+            posttag.save()
+            serializer = PostTagSerializer(posttag, context={'request': request})
+            return Response(serializer.data)
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
         try: 
             posttag.save()
