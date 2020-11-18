@@ -122,13 +122,10 @@ class Posts(ViewSet):
 
         post = Post.objects.get(pk=pk)
         category = Category.objects.get(pk=request.data["category_id"])
-        author = RareUser.objects.get(user=request.auth.user)
         post.category = category
         post.title = request.data["title"]
         post.image_url = request.data["image_url"]
-        # post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
-        post.author = author
         post.selected_tags = request.data["selected_tags"]
 
         post.save()
