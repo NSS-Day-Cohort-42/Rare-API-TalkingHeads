@@ -9,7 +9,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from rareserverapi.models import Post
+from rareserverapi.models import Post, PostTag
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model 
 
@@ -32,6 +32,7 @@ class Posts(ViewSet):
         post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.author = author
+        post.selected_tags = request.data["selected_tags"]
         post.approved = request.data["approved"]
         try:
             # user_admin = User.objects.get(request.auth.user)
@@ -46,6 +47,13 @@ class Posts(ViewSet):
         try:
             post.save()
             serializer = PostSerializer(post, context={'request': request})
+            #iterate through the selected tags array
+            for tag in post.selected_tags:
+                posttag = PostTag()
+                posttag.tag_id = int(tag["id"])
+                posttag.post_id = int(serializer.data["id"])
+                posttag.save()
+
             return Response(serializer.data)
 
         except ValidationError as ex:
@@ -123,10 +131,35 @@ class Posts(ViewSet):
         # post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.author = author
+        post.selected_tags = request.data["selected_tags"]
 
         post.save()
 
+        for tag in post.selected_tags:
+            posttag = PostTag()
+            posttag.tag_id = int(tag["id"])
+            posttag.post_id = int(serializer.data["id"])
+            posttag.save()
+
         return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+    def partial_update(self, request, pk=None):
+        """partially updates post"""
+
+        user = RareUser.objects.get(user=request.auth.user)
+
+        post = Post.objects.get(pk=pk)
+        post.approved = request.data["approved"]
+
+        if user.user.is_staff == True:
+            try:
+                post.save()
+                return Response({}, status=status.HTTP_204_NO_CONTENT)
+            except ValidationError as ex:
+                return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            return Response({"reason": "user is not an administrator"}, status=status.HTTP_403_FORBIDDEN)
 
     def destroy(self, request, pk=None):
         """Handles DELETE resquests for a post
