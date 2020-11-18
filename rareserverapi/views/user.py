@@ -32,6 +32,30 @@ class Users(ViewSet):
 
         except Exception as ex:
             return HttpResponseServerError(ex)
+    
+    def partial_update(self, request, pk=None):
+        """update is_staff"""
+
+        user = RareUser.objects.get(user=request.auth.user)
+
+        if user.user.is_staff == True:
+            try:
+                user_to_update = RareUser.objects.get(pk=pk)
+                
+                user_to_update.user.is_staff = request.data["is_staff"]
+
+                user_to_update.user.save()
+                return Response({}, status=status.HTTP_204_NO_CONTENT)
+            except ValidationError as ex:
+               return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({"reason": "Dear hacker, you are not an admin"}, status=status.HTTP_403_FORBIDDEN) 
+
+
+
+
+
+
 
     def partial_update(self, request, pk=None):
             """update is_staff"""
