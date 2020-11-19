@@ -195,15 +195,12 @@ class Posts(ViewSet):
                 return Response({}, status=status.HTTP_204_NO_CONTENT)
 
                 
-            except:
+            except PostReaction.DoesNotExist:
                 test_reactions = PostReaction()
                 test_reactions.reaction = Reaction.objects.get(pk=request.data["reaction_id"])
                 reactor = RareUser.objects.get(user=request.auth.user)
                 post = Post.objects.get(pk=pk)
 
-                
-               
-                
                 test_reactions.reactor = reactor
                 test_reactions.post = post
                 test_reactions.save()
@@ -211,7 +208,7 @@ class Posts(ViewSet):
                 return Response({}, status=status.HTTP_201_CREATED)
 
 class UserSerializer(serializers.ModelSerializer):
-    """ JSON Serializer for user 
+    """ JSON Serializer for user
     Arguments: 
         serializers
     """
@@ -228,6 +225,8 @@ class RareUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = RareUser
         fields = ('id', 'user')
+
+
 
 class PostSerializer(serializers.ModelSerializer):
     """ JSON Serializer for post 
