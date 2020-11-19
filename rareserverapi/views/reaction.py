@@ -13,7 +13,7 @@ class Reactions(ViewSet):
     def list(self, request):
         "GET all reactions"
         reactions = Reaction.objects.all()
-
+        
         serializer = ReactionSerializer(reactions, many=True, context={'request': request})
 
         return Response(serializer.data)

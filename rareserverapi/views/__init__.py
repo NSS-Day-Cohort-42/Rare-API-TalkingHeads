@@ -9,3 +9,4 @@ from .profile import Profiles
 from .subscription import Subscriptions
 from .user import Users
 from .reaction import Reactions
+from .postreaction import PostReactions
