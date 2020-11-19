@@ -27,7 +27,7 @@
   "pk": 3,
   "fields": {
     "author": 2,
-    "category": 3,
+    "category": 1,
     "title": "Use These iPhone Settings To Prevent Embarassing Butt-dials",
     "image_url": "https://media.newyorker.com/photos/5dc0758d106f5b0008633a29/master/pass/Rosen-ButtDialingGiuliani.jpg",
     "publication_date": "2020-10-29",
@@ -39,7 +39,7 @@
   "pk": 4,
   "fields": {
     "author": 1,
-    "category": 4,
+    "category": 3,
     "title": "What Medical Experts Advise About People Who Sweat Too Much, Part 1",
     "image_url": "https://www.the-sun.com/wp-content/uploads/sites/6/2020/11/NINTCHDBPICT000621091719-1.jpg",
     "publication_date": "2020-07-19",
@@ -51,7 +51,7 @@
   "pk": 5,
   "fields": {
     "author": 1,
-    "category": 4,
+    "category": 3,
     "title": "What Medical Experts Advise About People Who Sweat Too Much, Part 2",
     "image_url": "https://www.motherjones.com/wp-content/uploads/2019/10/rudy-giuliani10102019.jpg?w=1200&h=630&crop=1",
     "publication_date": "2020-03-18",
@@ -63,7 +63,7 @@
   "pk": 6,
   "fields": {
     "author": 2,
-    "category": 1,
+    "category": 4,
     "title": "Exclusive Interview with Kate McKinnon",
     "image_url": "https://uproxx.com/wp-content/uploads/2020/11/rudysnl710.jpg?w=710",
     "publication_date": "2020-04-13",
@@ -75,7 +75,7 @@
   "pk": 7,
   "fields": {
     "author": 2,
-    "category": 1,
+    "category": 2,
     "title": "How To Become A Lawyer By Binge Watching Matlock",
     "image_url": "https://cdn.pastemagazine.com/www/articles/giuliani%20hannity%20main.jpg",
     "publication_date": "2020-07-12",
@@ -87,7 +87,7 @@
   "pk": 8,
   "fields": {
     "author": 2,
-    "category": 1,
+    "category": 4,
     "title": "Top 10 Best Scary Movies For Your Halloween Party",
     "image_url": "https://www.mixdexhq.com/wp-content/uploads/rudy-guiliani-cnn.jpg",
     "publication_date": "2020-04-09",
@@ -99,7 +99,7 @@
   "pk": 9,
   "fields": {
     "author": 1,
-    "category": 1,
+    "category": 3,
     "title": "How To Keep Hair Dye In Your Hair And Off Your Face",
     "image_url": "https://e3.365dm.com/20/11/768x432/skynews-rudy-giuliani-washington_5177523.jpg?20201119200831",
     "publication_date": "2020-06-10",
@@ -111,7 +111,7 @@
   "pk": 10,
   "fields": {
     "author": 1,
-    "category": 1,
+    "category": 4,
     "title": "Second Funniest Lawyer On TV",
     "image_url": "https://i.ytimg.com/vi/K3G087IgWwU/maxresdefault.jpg",
     "publication_date": "2020-04-01",

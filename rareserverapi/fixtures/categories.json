@@ -2,31 +2,31 @@
   "model": "rareserverapi.category",
   "pk": 1,
   "fields": {
-    "label": "Political"
+    "label": "Tech"
   }
 }, {
   "model": "rareserverapi.category",
   "pk": 2,
   "fields": {
-    "label": "Religious"
+    "label": "Business"
   }
 }, {
   "model": "rareserverapi.category",
   "pk": 3,
   "fields": {
-    "label": "Satire"
+    "label": "Medical"
   }
 }, {
   "model": "rareserverapi.category",
   "pk": 4,
   "fields": {
-    "label": "Business"
+    "label": "Entertainment"
   }
 }, {
   "model": "rareserverapi.category",
   "pk": 5,
   "fields": {
-    "label": "Tech"
+    "label": "Humor"
   }
 }, {
   "model": "rareserverapi.category",
