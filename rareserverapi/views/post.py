@@ -9,9 +9,10 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from rareserverapi.models import Post, PostTag
+from rareserverapi.models import Post, PostTag, Reaction, PostReaction
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model 
+from rest_framework.decorators import action
 
 class Posts(ViewSet):
     """ rare Post  """
@@ -177,6 +178,37 @@ class Posts(ViewSet):
 
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    @action(methods=['post','get'], detail=True)
+    def react(self, request, pk):
+        if request.method == "POST":
+
+            try:
+                reaction = Reaction.objects.get(pk=request.data["reaction_id"])
+                reactor = RareUser.objects.get(user=request.auth.user)
+                post = Post.objects.get(pk=pk)
+
+                reactions = PostReaction.objects.get(reaction=reaction, reactor=reactor, post=post)
+
+                reactions.delete()
+
+                return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+                
+            except:
+                test_reactions = PostReaction()
+                test_reactions.reaction = Reaction.objects.get(pk=request.data["reaction_id"])
+                reactor = RareUser.objects.get(user=request.auth.user)
+                post = Post.objects.get(pk=pk)
+
+                
+               
+                
+                test_reactions.reactor = reactor
+                test_reactions.post = post
+                test_reactions.save()
+
+                return Response({}, status=status.HTTP_201_CREATED)
 
 class UserSerializer(serializers.ModelSerializer):
     """ JSON Serializer for user 
