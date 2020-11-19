@@ -30,7 +30,7 @@ def login_user(request):
         if authenticated_user is not None:
             token = Token.objects.get(user=authenticated_user)
             rare_user = RareUser.objects.get(user=authenticated_user)
-            data = json.dumps({"valid": True, "token": token.key, "isAdmin": rare_user.user.is_staff})
+            data = json.dumps({"valid": True, "token": token.key, "isAdmin": rare_user.user.is_staff, "isActive": rare_user.user.is_active}) # Sends isActive to client to verify the users abilitly to login
             return HttpResponse(data, content_type='application/json')
 
         else:

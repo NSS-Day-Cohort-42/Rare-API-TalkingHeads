@@ -107,7 +107,9 @@ class Posts(ViewSet):
         if user_id is not None:
             posts = posts.filter(author_id=user_id)
 
-            
+        category_id = self.request.query_params.get('category_id', None)
+        if category_id is not None:
+            posts = posts.filter(category_id=category_id)    
 
 
         # Note the addtional `many=True` argument to the
@@ -122,13 +124,10 @@ class Posts(ViewSet):
 
         post = Post.objects.get(pk=pk)
         category = Category.objects.get(pk=request.data["category_id"])
-        author = RareUser.objects.get(user=request.auth.user)
         post.category = category
         post.title = request.data["title"]
         post.image_url = request.data["image_url"]
-        # post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
-        post.author = author
         post.selected_tags = request.data["selected_tags"]
 
         post.save()
@@ -140,6 +139,24 @@ class Posts(ViewSet):
             posttag.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+    def partial_update(self, request, pk=None):
+        """partially updates post"""
+
+        user = RareUser.objects.get(user=request.auth.user)
+
+        post = Post.objects.get(pk=pk)
+        post.approved = request.data["approved"]
+
+        if user.user.is_staff == True:
+            try:
+                post.save()
+                return Response({}, status=status.HTTP_204_NO_CONTENT)
+            except ValidationError as ex:
+                return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            return Response({"reason": "user is not an administrator"}, status=status.HTTP_403_FORBIDDEN)
 
     def destroy(self, request, pk=None):
         """Handles DELETE resquests for a post
